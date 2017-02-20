@@ -303,7 +303,8 @@
     DSState.on('DS.change', function(DSState, newState) {
       if((angular.isDefined(vm.actionCtrl) && vm.actionCtrl !== null) &&
          (angular.isDefined(vm.actionCtrl.correspondingState) && vm.actionCtrl.correspondingState !== null) &&
-         vm.actionCtrl.correspondingState.stateTypeId === newState.stateTypeId) {
+         vm.actionCtrl.correspondingState.stateTypeId === newState.stateTypeId &&
+         vm.actionCtrl.device.id === newState.deviceId) {
         vm.actionCtrl.correspondingState.value = newState.value;
         if (!$scope.$$phase) {
           $scope.$apply(function() {
